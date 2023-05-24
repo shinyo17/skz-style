@@ -1,38 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 스트레이키즈 취향표
 
-## Getting Started
+#### [사이트 링크](https://skz-style.vercel.app/)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Flutter Web으로 제작했던 [세븐틴 취향표](https://svt-style.web.app/)
+프로젝트를 기반으로 **Next.js, TypeScript, Tailwind CSS를 이용하여** 더보이즈 버전으로 만들었던 것을 코드를 깔끔하게 정리하여, 스트레이키즈 버전으로 만들었습니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| 메인 화면                                       | 8문항 버전                                      |
+| ----------------------------------------------- | ----------------------------------------------- |
+| <img width="380" alt="" src="/screenshot1.png"> | <img width="381" alt="" src="/screenshot2.png"> |
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+| 다운로드 결과                           |
+| --------------------------------------- |
+| <img width="380" alt="" src="/skz.png"> |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 트위터 반응
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| 트위터 게시물 반응 - 세븐틴                                                                                                                                                  | 트위터 게시물 반응 - 더보이즈                                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img width="378" alt="스크린샷 2022-12-24 오후 9 49 22" src="https://user-images.githubusercontent.com/63589031/209436978-d4caeb21-b536-4b2a-94cf-f7bcdfe3b4b5.png"> | <img width="374" alt="스크린샷 2022-12-24 오후 9 47 32" src="https://user-images.githubusercontent.com/63589031/209436861-abb353f7-81a1-48a2-8323-50eb812209e6.png"> |
