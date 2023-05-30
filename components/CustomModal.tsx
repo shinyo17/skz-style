@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { MemberStateMap } from "@/shared/types/MemberStateMap";
-import { Artist } from "@/shared/interfaces/Artist";
+import { Artist } from "@/shared/interfaces/artist";
 
 interface ModalProps {
   title: string;
