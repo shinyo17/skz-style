@@ -31,9 +31,13 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <div className="font-suite">
-        <RecoilRoot>
-          <Component {...pageProps} />
-        </RecoilRoot>
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+          <div className="max-w-lg w-full">
+            <RecoilRoot>
+              <Component {...pageProps} />
+            </RecoilRoot>
+          </div>
+        </div>
       </div>
     </>
   );
