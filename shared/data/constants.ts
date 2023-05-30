@@ -1,4 +1,4 @@
-import { Artist } from "../interfaces/Artist";
+import { Artist } from "../interfaces/artist";
 
 export const NINE_ITEMS = [
   "최애",
