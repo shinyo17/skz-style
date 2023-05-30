@@ -1,7 +1,9 @@
-import { useState, Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
+import cx from "classnames";
 
 interface ButtonProps {
   title: string;
+  index: number;
   setShowModal: Dispatch<SetStateAction<boolean>>;
   memberImg: string;
   memberName: string;
@@ -9,6 +11,7 @@ interface ButtonProps {
 
 export default function SelectButton({
   title,
+  index,
   setShowModal,
   memberImg,
   memberName,
@@ -16,18 +19,18 @@ export default function SelectButton({
   return (
     <button
       onClick={() => setShowModal(true)}
-      className="flex flex-col items-center p-4 space-y-3 cursor-pointer text-gray-600 hover:border-black hover:text-black justify-center"
+      className="flex flex-col items-center p-1 space-y-3 cursor-pointer text-gray-600 hover:border-black hover:text-black justify-center"
     >
-      <p className="text-gray-900 text-sm font-bold">{title}</p>
+      <p className="text-xs font-extrabold py-0.5 px-1 rounded-xl text-black">
+        {title}
+      </p>
       {memberImg !== "" && memberName !== "" ? (
         <div>
           <img
             className="object-cover object-center rounded-md aspect-square"
             src={memberImg}
+            alt=""
           />
-          <p className="my-2 text-gray-900 text-xs font-semibold">
-            {memberName}
-          </p>
         </div>
       ) : (
         <svg
@@ -36,7 +39,7 @@ export default function SelectButton({
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-6 h-6"
+          className="w-5 h-5"
         >
           <path
             strokeLinecap="round"

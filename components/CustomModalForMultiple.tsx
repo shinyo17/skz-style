@@ -1,37 +1,66 @@
-import { Dispatch, SetStateAction } from "react";
-import { MemberStateMap } from "@/shared/types/MemberStateMap";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+
+import {
+  answerStateMapsState,
+  selectedItemState,
+  selectedUserState,
+} from "@/shared/store/state";
 import { Artist } from "@/shared/interfaces/Artist";
+import { MemberStateMap } from "@/shared/types/MemberStateMap";
 
 interface ModalProps {
   title: string;
   memberType: string;
-  setStateMap: Dispatch<SetStateAction<MemberStateMap>>;
   members: Artist[];
 }
 
-export default function CustomModal({
+export default function CustomModalForMultiple({
   title,
   memberType,
-  setStateMap,
   members,
 }: ModalProps) {
+  const [answerStateMaps, setMemberStateMaps] =
+    useRecoilState<MemberStateMap[]>(answerStateMapsState);
+  const [selectedUserIndex] = useRecoilState<number>(selectedUserState);
+
+  const [__, setSelectedItem] = useRecoilState(selectedItemState);
+
   const closeModal = () => {
-    setStateMap((prevState) => ({
-      ...prevState,
-      [memberType]: { ...prevState[memberType], showModal: false },
-    }));
+    setMemberStateMaps((prevMaps) => {
+      const newStateMaps = [...prevMaps];
+      const updatedStateMap: MemberStateMap = {
+        ...newStateMaps[selectedUserIndex],
+        [memberType]: {
+          ...newStateMaps[selectedUserIndex][memberType],
+          showModal: false,
+        },
+      };
+      newStateMaps[selectedUserIndex] = updatedStateMap;
+      return newStateMaps;
+    });
+    setSelectedItem("");
   };
 
   const selectMember = (img: string, name: string) => {
-    setStateMap((prevState) => ({
-      ...prevState,
-      [memberType]: {
-        showModal: false,
-        memberImg: `/images/${img}`,
-        memberName: name,
-      },
-    }));
+    setMemberStateMaps((prevMaps) => {
+      const newStateMaps = [...prevMaps];
+      const updatedStateMap: MemberStateMap = {
+        ...newStateMaps[selectedUserIndex],
+        [memberType]: {
+          ...newStateMaps[selectedUserIndex][memberType],
+          memberImg: `/images/${img}`,
+          memberName: name,
+        },
+      };
+      newStateMaps[selectedUserIndex] = updatedStateMap;
+      return newStateMaps;
+    });
+
+    setSelectedItem("");
   };
+
+  useEffect(() => {}, [answerStateMaps, selectedUserIndex, memberType]);
 
   return (
     <div className="fixed inset-0 z-10 overflow-y-auto">

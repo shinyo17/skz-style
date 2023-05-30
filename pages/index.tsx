@@ -1,25 +1,54 @@
+import Image from "next/image";
+import cx from "classnames";
+import { Dangam } from "@/shared/data/font";
 import NavigationButton from "@/components/NavigationButton";
-import Link from "next/link";
+import { useResetRecoilState } from "recoil";
+import {
+  answerStateMapsState,
+  selectedItemState,
+  selectedUserState,
+  userProfilesState,
+} from "@/shared/store/state";
 
 export default function Home() {
+  const answerMapReset = useResetRecoilState(answerStateMapsState);
+  const userProfilesReset = useResetRecoilState(userProfilesState);
+  const selectedItemReset = useResetRecoilState(selectedItemState);
+  const selectedUserReset = useResetRecoilState(selectedUserState);
+
   return (
-    <div className="flex flex-col space-y-10 items-center justify-start w-full min-h-screen bg-slate-50">
-      <div className="py-3 w-full text-center bg-gray-500">
-        <p className="text-2xl text-white font-medium">SKZ 취향표</p>
+    <div className="flex flex-col items-center justify-center w-full px-5 py-10 min-h-screen bg-white">
+      <div
+        className={cx("mb-20 text-4xl font-black text-black", Dangam.className)}
+      >
+        SKZ 취향표
       </div>
-      <div className="flex flex-col items-center text-center">
-        <Link
-          href="https://twitter.com/DeveloperTyga"
-          className="text-xl text-gray-900 font-medium"
-        >
-          개발자 타이가 @DeveloperTyga
-        </Link>
-        <div className="text-xs py-1 text-gray-400 text-center">
-          상업적인 목적은 절대 없음을 알립니다.
-        </div>
-      </div>
-      <div className="grid grid-cols-1 space-x-3 items-center justify-center">
-        <NavigationButton href={"/eight"} title={"8문항 버전"} />
+      <Image
+        className="object-cover w-[50%] mb-40"
+        src="/images/logo.svg"
+        alt=""
+        width={200}
+        height={37}
+        unoptimized={true}
+      />
+      <div className="mb-10 flex flex-col w-full space-y-5 items-center justify-center">
+        <NavigationButton
+          onClick={() => {}}
+          href={"/nine"}
+          title={"1인용 9문항 만들기"}
+          border={true}
+        />
+        <NavigationButton
+          onClick={() => {
+            answerMapReset();
+            userProfilesReset();
+            selectedItemReset();
+            selectedUserReset();
+          }}
+          href={"/eight/6"}
+          title={"6인용 8문항 만들기"}
+          border={false}
+        />
       </div>
     </div>
   );

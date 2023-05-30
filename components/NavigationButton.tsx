@@ -1,20 +1,37 @@
-import Link from "next/link";
+import cx from "classnames";
+import { useRouter } from "next/router";
 
 export interface NavigationButtonProps {
+  onClick(): void;
   href: string;
   title: string;
+  border: boolean;
 }
 
 export default function NavigationButton({
+  onClick,
   href,
   title,
+  border,
 }: NavigationButtonProps) {
+  const classes = cx(
+    "text-center text-lg font-extrabold py-5 w-full shadow-sm rounded-full",
+    border
+      ? "bg-white text-black border-black border-2 "
+      : "bg-black text-white"
+  );
+
+  const router = useRouter();
+
   return (
-    <Link
-      href={href}
-      className="text-center mt-5 bg-black hover:bg-black text-white py-2 px-4 border border-transparent rounded-3xl shadow-sm text-sm font-bold focus:ring-2 focus:ring-offset-2 focus:ring-black focus:outline-none"
+    <button
+      onClick={() => {
+        onClick();
+        router.push(href);
+      }}
+      className={classes}
     >
       {title}
-    </Link>
+    </button>
   );
 }
