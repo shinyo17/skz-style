@@ -6,7 +6,7 @@ import {
   selectedItemState,
   selectedUserState,
 } from "@/shared/store/state";
-import { Artist } from "@/shared/interfaces/Artist";
+import { Artist } from "@/shared/interfaces/artist";
 import { MemberStateMap } from "@/shared/types/MemberStateMap";
 
 interface ModalProps {
